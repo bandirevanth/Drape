@@ -2,9 +2,9 @@
 
 DrapeAI is an intelligent fashion recommendation app that helps users match outfits based on mood, occasion, season, age, and body type - powered by OpenAI and Streamlit.
 
-Upload your clothing item image and get AI-personalized styling tips.
+Upload your clothing item image and get AI-personalized styling tips. ✨
 
-Completely offline-compatible, no cloud functions or sign-ups/logins.
+Completely offline-compatible, no cloud functions or sign-ups/logins...
 
 ---
 
@@ -36,7 +36,6 @@ python -m venv venv
 venv\Scripts\activate  # for Windows
 
 #3. Add your .env file:
-
 env OPENAI_API_KEY=your_key_here
 
 # 3. Install requirements
