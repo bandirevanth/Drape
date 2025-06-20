@@ -24,6 +24,10 @@ Streamlit, OpenAI AI, Pillow, Flask
 
 ---
 
+Don't forget to star me on GitHub and follow me! Thanks :)
+
+---
+
 ## 💻 How to Run Locally
 
 ```bash
@@ -43,3 +47,4 @@ pip install -r requirements.txt
 
 # 4. Run the app
 streamlit run frontend.py
+
