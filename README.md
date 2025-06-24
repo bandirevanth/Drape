@@ -22,9 +22,8 @@ Completely offline-compatible, no cloud functions or sign-ups/logins...
 ## 🛠️ Built With
 Streamlit, OpenAI AI, Pillow, Flask
 
----
 
-Don't forget to star me on GitHub and follow me! Thanks :)
+**Don't forget to star me on GitHub and follow me! Thanks :)**
 
 ---
 
