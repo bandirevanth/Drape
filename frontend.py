@@ -10,7 +10,7 @@ BACKEND_URL = "http://127.0.0.1:5000"
 
 # --- Page Configuration ---
 st.set_page_config(page_title="Drape AI", layout="wide")
-st.markdown("<h1 style='color:#ff4b4b;'>👗 Drape AI - Fashion & Culture</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='color:#ff4b4b;'>Drape AI - Fashion & Culture</h1>", unsafe_allow_html=True)
 st.markdown("Upload an outfit piece and get culturally-inspired fashion suggestions!")
 
 # --- Apply Light Styling ---
@@ -45,27 +45,27 @@ for key, val in default_values.items():
         st.session_state[key] = val
 
 # --- File Upload ---
-uploaded_file = st.file_uploader("📤 Upload your clothing image", type=["jpg", "jpeg", "png"])
+uploaded_file = st.file_uploader("Upload your clothing image", type=["jpg", "jpeg", "png"])
 
 if uploaded_file:
-    st.image(Image.open(uploaded_file), caption="📸 Here's your uploaded style!", use_column_width=True)
+    st.image(Image.open(uploaded_file), caption="Here's your uploaded style!", use_column_width=True)
     st.markdown("---")
 
-    st.markdown("### 🧵 Personalize Your Style Preferences")
+    st.markdown("### Personalize Your Style Preferences")
     remember = st.checkbox("Remember my preferences for next time", value=True)
 
     col1, col2, col3 = st.columns(3)
     with col1:
-        occasion = st.selectbox("🎯 Occasion", ["Casual", "Formal", "Party", "Wedding", "Work", "Date"], index=["Casual", "Formal", "Party", "Wedding", "Work", "Date"].index(st.session_state.occasion))
-        season = st.selectbox("🌦️ Season", ["Any", "Summer", "Winter", "Spring", "Autumn", "Monsoon"], index=["Any", "Summer", "Winter", "Spring", "Autumn", "Monsoon"].index(st.session_state.season))
+        occasion = st.selectbox("Occasion", ["Casual", "Formal", "Party", "Wedding", "Work", "Date"], index=["Casual", "Formal", "Party", "Wedding", "Work", "Date"].index(st.session_state.occasion))
+        season = st.selectbox("Season", ["Any", "Summer", "Winter", "Spring", "Autumn", "Monsoon"], index=["Any", "Summer", "Winter", "Spring", "Autumn", "Monsoon"].index(st.session_state.season))
     with col2:
-        gender = st.selectbox("🚻 Gender", ["Woman", "Man", "Non-binary", "Prefer not to say"], index=["Woman", "Man", "Non-binary", "Prefer not to say"].index(st.session_state.gender))
-        body_type = st.selectbox("🧍 Body Type", ["Average", "Petite", "Tall", "Plus-size", "Athletic", "Curvy"], index=["Average", "Petite", "Tall", "Plus-size", "Athletic", "Curvy"].index(st.session_state.body_type))
+        gender = st.selectbox("Gender", ["Woman", "Man", "Non-binary", "Prefer not to say"], index=["Woman", "Man", "Non-binary", "Prefer not to say"].index(st.session_state.gender))
+        body_type = st.selectbox("Body Type", ["Average", "Petite", "Tall", "Plus-size", "Athletic", "Curvy"], index=["Average", "Petite", "Tall", "Plus-size", "Athletic", "Curvy"].index(st.session_state.body_type))
     with col3:
-        age = st.selectbox("🎂 Age Group", ["Teen", "20s", "30s", "40s", "50+", "60+"], index=["Teen", "20s", "30s", "40s", "50+", "60+"].index(st.session_state.age))
-        mood = st.selectbox("😌 Mood", ["Happy", "Lazy", "Motivated", "Romantic", "Confident", "Chill", "Adventurous", "Classy", "Energetic", "Bold", "Elegant", "Sophisticated", "Edgy"], index=["Happy", "Lazy", "Motivated", "Romantic", "Confident", "Chill", "Adventurous", "Classy", "Energetic", "Bold", "Elegant", "Sophisticated", "Edgy"].index(st.session_state.mood))
+        age = st.selectbox("Age Group", ["Teen", "20s", "30s", "40s", "50+", "60+"], index=["Teen", "20s", "30s", "40s", "50+", "60+"].index(st.session_state.age))
+        mood = st.selectbox("Mood", ["Happy", "Lazy", "Motivated", "Romantic", "Confident", "Chill", "Adventurous", "Classy", "Energetic", "Bold", "Elegant", "Sophisticated", "Edgy"], index=["Happy", "Lazy", "Motivated", "Romantic", "Confident", "Chill", "Adventurous", "Classy", "Energetic", "Bold", "Elegant", "Sophisticated", "Edgy"].index(st.session_state.mood))
 
-    if st.button("✨ Generate Style Masterpiece"):
+    if st.button("Generate Style Masterpiece"):
         with st.spinner("🪡 Stitching your perfect outfit suggestion..."):
             try:
                 # Save current selections to session if checkbox is ticked
@@ -93,12 +93,12 @@ if uploaded_file:
                 result = response.json()
 
                 if response.status_code != 200:
-                    st.error(f"❌ Server error: {result.get('message', 'Unknown')}")
+                    st.error(f"Server error: {result.get('message', 'Unknown')}")
                 elif "fashion_suggestion" in result.get("data", {}):
-                    st.markdown("### ✨ Your Fashion Suggestion")
+                    st.markdown("### Your Fashion Suggestion")
                     st.markdown(result["data"]["fashion_suggestion"])
                 else:
-                    st.warning("⚠️ No suggestion returned. Try a different image or filters.")
+                    st.warning("No suggestion returned. Try a different image or filters.")
 
             except Exception as e:
-                st.error(f"❌ Error: {str(e)}")
+                st.error(f"Error: {str(e)}")
