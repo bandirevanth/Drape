@@ -3,10 +3,6 @@ __pycache__/
 *$py.class
 
 .env
-venv/
-.venv/
-env/
-ENV/
 
 uploads/
 
@@ -17,7 +13,3 @@ Thumbs.db
 
 .vscode/
 .idea/
-
-*.log
-*.bak
-*.tmp
